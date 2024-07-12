@@ -83,7 +83,6 @@ def main():
     subparsers = parser.add_subparsers(dest='command')
 
     start_parser = subparsers.add_parser('start', help='Start a new feature branch')
-    start_parser.add_argument('type', choices=['feat'], help='The type of branch to start (currently only supports feat)')
 
     finish_parser = subparsers.add_parser('finish', help='Finish a feature branch')
 
@@ -103,7 +102,7 @@ def main():
             print(f"Branch '{args.branch_name}' does not exist. Creating and checking out.")
             create_branch(args.branch_name)
     
-    if args.command == 'start' and args.type == 'feat':
+    if args.command == 'start':
         start_feature()
     elif args.command == 'finish':
         finish_feature()
